@@ -9,17 +9,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Enable CORS for all HTTP methods
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
+});
 
 // Configuring the database
 const config = require('./config.js');
 const mongoose = require('mongoose');
-require('./routes/product.routes.js')(app);
 
 // require('./routes/category.routes.js')(app);
 // require('./routes/blog.routes.js')(app);
@@ -31,7 +30,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(config.url, {
     useNewUrlParser: true
 }).then(() => {
-    console.log("Successfully connected to the database");    
+    console.log("Successfully connected to the database");
 }).catch(err => {
     console.log('Could not connect to the database. Exiting now...', err);
     process.exit();
@@ -39,7 +38,7 @@ mongoose.connect(config.url, {
 
 // default route
 app.get('/', (req, res) => {
-    res.json({"message": "Welcome to Blog app"});
+    res.json({ "message": "Welcome to Blog app" });
 });
 
 // listen on port 3000
