@@ -9,8 +9,11 @@
   "author": "Hieutt",
   "license": "",
   "dependencies": {
+    "@vitalets/google-translate-api": "^2.8.0",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "google-translate-api": "^2.3.0",
     "mongoose": "^5.4.2"
   }
 }

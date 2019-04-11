@@ -23,6 +23,7 @@ const mongoose = require('mongoose');
 // require('./routes/category.routes.js')(app);
 // require('./routes/blog.routes.js')(app);
 require('./routes/user.routes.js')(app);
+require('./routes/common.routes.js')(app);
 
 mongoose.Promise = global.Promise;
 
