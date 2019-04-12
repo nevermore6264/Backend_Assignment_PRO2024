@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
 const config = require('./config.js');
 const mongoose = require('mongoose');
 
-// require('./routes/category.routes.js')(app);
+require('./routes/category.routes.js')(app);
 // require('./routes/blog.routes.js')(app);
 require('./routes/user.routes.js')(app);
 require('./routes/common.routes.js')(app);
