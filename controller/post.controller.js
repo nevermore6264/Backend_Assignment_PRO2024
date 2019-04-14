@@ -38,24 +38,24 @@ exports.findAll = (req, res) => {
         });
 };
 
-// Find a single post with a key
+// Find a single post with a _id
 exports.findOne = (req, res) => {
-    Post.findOne({ key: req.params.key })
+    Post.findOne({ _id: req.params._id })
         .then(post => {
             if (!post) {
                 return res.status(404).send({
-                    message: "Post not found with key " + req.params.key
+                    message: "Post not found with _id " + req.params._id
                 });
             }
             res.send(post);
         }).catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Post not found with key " + req.params.key
+                    message: "Post not found with _id " + req.params._id
                 });
             }
             return res.status(500).send({
-                message: "Something wrong retrieving post with key " + req.params.key
+                message: "Something wrong retrieving post with _id " + req.params._id
             });
         });
 };
@@ -70,47 +70,47 @@ exports.update = (req, res) => {
     }
 
     // Find and update post with the request body
-    Post.findOneAndUpdate({ key: req.params.key }, {
-        key: req.body.key,
+    Post.findOneAndUpdate({ _id: req.params._id }, {
+        _id: req.body._id,
         name: req.body.name,
     }, { new: true })
         .then(post => {
             if (!post) {
                 return res.status(404).send({
-                    message: "Post not found with key " + req.params.key
+                    message: "Post not found with _id " + req.params._id
                 });
             }
             res.send(post);
         }).catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Post not found with key " + req.params.key
+                    message: "Post not found with _id " + req.params._id
                 });
             }
             return res.status(500).send({
-                message: "Something wrong updating note with key " + req.params.key
+                message: "Something wrong updating note with _id " + req.params._id
             });
         });
 };
 
 // Delete a note with the specified noteId in the request
 exports.delete = (req, res) => {
-    Post.findOneAndRemove({ key: req.params.key })
+    Post.findOneAndRemove({ _id: req.params._id })
         .then(post => {
             if (!post) {
                 return res.status(404).send({
-                    message: "Post not found with key " + req.params.key
+                    message: "Post not found with _id " + req.params._id
                 });
             }
             res.send({ message: "Post deleted successfully!" });
         }).catch(err => {
             if (err.kind === 'ObjectId' || err.name === 'NotFound') {
                 return res.status(404).send({
-                    message: "Post not found with key " + req.params.key
+                    message: "Post not found with _id " + req.params._id
                 });
             }
             return res.status(500).send({
-                message: "Could not delete post with key " + req.params.key
+                message: "Could not delete post with _id " + req.params._id
             });
         });
 };
