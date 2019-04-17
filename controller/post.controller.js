@@ -14,7 +14,7 @@ exports.create = (req, res) => {
         content: req.body.content,
         author: req.body.author,
         comments: [{ message: req.body.message, commentator: req.body.commentator, date: req.body.date }],
-        date: { type: req.body.date, default: Date.now },
+        date:  req.body.date,
         votes: req.body.votes,
         attachments: {
             images: req.body.images,
@@ -81,7 +81,7 @@ exports.update = (req, res) => {
         content: req.body.content,
         author: req.body.author,
         comments: [{ message: req.body.message, commentator: req.body.commentator, date: req.body.date }],
-        date: { type: req.body.date, default: Date.now },
+        date: req.body.date,
         votes: req.body.votes,
         attachments: {
             images: req.body.images,
