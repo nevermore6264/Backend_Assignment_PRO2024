@@ -11,8 +11,15 @@ exports.create = (req, res) => {
 
     // Create a Post
     const post = new Post({
-        
-        
+        content: String,
+        author: String,
+        comments: [{ message: String, commentator: String, date: Date }],
+        date: { type: Date, default: Date.now },
+        votes: Number,
+        attachments: {
+            images: String,
+            videos: String,
+        }
     });
 
     // Save Post in the database
@@ -71,8 +78,15 @@ exports.update = (req, res) => {
 
     // Find and update post with the request body
     Post.findOneAndUpdate({ _id: req.params._id }, {
-        _id: req.body._id,
-        name: req.body.name,
+        content: String,
+        author: String,
+        comments: [{ message: String, commentator: String, date: Date }],
+        date: { type: Date, default: Date.now },
+        votes: Number,
+        attachments: {
+            images: String,
+            videos: String,
+        }
     }, { new: true })
         .then(post => {
             if (!post) {
