@@ -11,14 +11,14 @@ exports.create = (req, res) => {
 
     // Create a Post
     const post = new Post({
-        content: String,
-        author: String,
-        comments: [{ message: String, commentator: String, date: Date }],
-        date: { type: Date, default: Date.now },
-        votes: Number,
+        content: req.body.content,
+        author: req.body.author,
+        comments: [{ message: req.body.message, commentator: req.body.commentator, date: req.body.date }],
+        date: { type: req.body.date, default: Date.now },
+        votes: req.body.votes,
         attachments: {
-            images: String,
-            videos: String,
+            images: req.body.images,
+            videos: req.body.videos,
         }
     });
 
@@ -78,14 +78,14 @@ exports.update = (req, res) => {
 
     // Find and update post with the request body
     Post.findOneAndUpdate({ _id: req.params._id }, {
-        content: String,
-        author: String,
-        comments: [{ message: String, commentator: String, date: Date }],
-        date: { type: Date, default: Date.now },
-        votes: Number,
+        content: req.body.content,
+        author: req.body.author,
+        comments: [{ message: req.body.message, commentator: req.body.commentator, date: req.body.date }],
+        date: { type: req.body.date, default: Date.now },
+        votes: req.body.votes,
         attachments: {
-            images: String,
-            videos: String,
+            images: req.body.images,
+            videos: req.body.videos,
         }
     }, { new: true })
         .then(post => {
