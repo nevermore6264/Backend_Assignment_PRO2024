@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const PostSchema = mongoose.Schema({
     content: String,
     author: String,
-    key: String,
     comments: [ { message: String, commentator: String, date: Date } ],
+    key: String,
     date: { type: Date, default: Date.now },
     votes: Number,
-    attachments: {
+    file_upload: {
         images: String,
         videos: String,
     }

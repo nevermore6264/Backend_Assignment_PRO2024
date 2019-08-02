@@ -62,11 +62,11 @@ exports.post_to_facebook = function (req, res) {
 exports.translate = function (req, res) {
     var content = req.body.content;
     translate(content, { to: 'en' }).then(res => {
-        res.send(res.text);
         console.log(res.text);
-        return "alo" + res.text;
+        return res.text;
     }).catch(err => {
-        console.error(err);
+        res.status(500).send({
+            message: err + "Something wrong while translate the post."
+        });
     });
-    return res.sendStatus(200)
 }

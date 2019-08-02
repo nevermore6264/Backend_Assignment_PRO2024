@@ -14,9 +14,10 @@ exports.create = (req, res) => {
         content: req.body.content,
         author: req.body.author,
         comments: [{ message: req.body.message, commentator: req.body.commentator, date: req.body.date }],
+        key: req.body.key,
         date:  req.body.date,
         votes: req.body.votes,
-        attachments: {
+        file_upload: {
             images: req.body.images,
             videos: req.body.videos,
         }
@@ -81,9 +82,10 @@ exports.update = (req, res) => {
         content: req.body.content,
         author: req.body.author,
         comments: [{ message: req.body.message, commentator: req.body.commentator, date: req.body.date }],
+        key: req.body.key,
         date: req.body.date,
         votes: req.body.votes,
-        attachments: {
+        file_upload: {
             images: req.body.images,
             videos: req.body.videos,
         }
