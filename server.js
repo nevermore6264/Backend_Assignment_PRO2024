@@ -23,11 +23,11 @@ app.use(function(req, res, next) {
 const config = require("./config.js");
 const mongoose = require("mongoose");
 require("./routes/staff.routes.js")(app);
+require("./routes/customer.routes.js")(app);
 
 require("./routes/category.routes.js")(app);
 require("./routes/post.routes.js")(app);
 require("./routes/user.routes.js")(app);
-require("./routes/common.routes.js")(app);
 
 mongoose.Promise = global.Promise;
 
