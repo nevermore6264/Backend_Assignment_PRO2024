@@ -1,18 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const ProductSchema = mongoose.Schema({
-    content: String,
-    author: String,
-    comments: [ { message: String, commentator: String, date: Date } ],
-    key: String,
-    date: { type: Date, default: Date.now },
-    votes: Number,
-    file_upload: {
-        images: String,
-        videos: String,
-    }
-}, {
-        timestamps: true
-    });
+const ProductSchema = mongoose.Schema(
+  {
+    name: String,
+    category_name: String,
+    status: Number,
+    images0: String,
+    images1: String,
+    images2: String,
+    images3: String,
+    images4: String
+  },
+  {
+    timestamps: true
+  }
+);
 
-module.exports = mongoose.model('Product', ProductSchema);
+module.exports = mongoose.model("Product", ProductSchema);
