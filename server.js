@@ -19,11 +19,17 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(express.static("uploads"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // Configuring the database
 const config = require("./config.js");
+
 const mongoose = require("mongoose");
 require("./routes/staff.routes.js")(app);
 require("./routes/customer.routes.js")(app);
+require("./routes/product.routes.js")(app);
 
 require("./routes/category.routes.js")(app);
 require("./routes/post.routes.js")(app);

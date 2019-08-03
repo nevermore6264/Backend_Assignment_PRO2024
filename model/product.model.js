@@ -5,11 +5,7 @@ const ProductSchema = mongoose.Schema(
     name: String,
     category_name: String,
     status: Number,
-    images0: String,
-    images1: String,
-    images2: String,
-    images3: String,
-    images4: String
+    images: String
   },
   {
     timestamps: true
