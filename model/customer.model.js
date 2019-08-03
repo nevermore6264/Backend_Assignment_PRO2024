@@ -2,10 +2,8 @@ const mongoose = require("mongoose");
 
 const CustomerSchema = mongoose.Schema(
   {
-    username: String,
     fullname: String,
     email: String,
-    password: String,
     birthday: Date,
     phone: String,
     identification: String,
@@ -16,19 +14,15 @@ const CustomerSchema = mongoose.Schema(
     avatar: String,
     gender: Boolean,
     description: {
-      me: {
-        job: String,
-        salary: Number,
-        company: String,
-        contact_people: String,
-        contact_phone: String
-      },
-      other: {
-        father_name: String,
-        father_phone: String,
-        mother_name: String,
-        mother_phone: String
-      }
+      job: String,
+      salary: Number,
+      company: String,
+      contact_people: String,
+      contact_phone: String,
+      father_name: String,
+      father_phone: String,
+      mother_name: String,
+      mother_phone: String
     }
   },
   {

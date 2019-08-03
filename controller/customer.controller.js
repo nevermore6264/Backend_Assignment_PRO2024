@@ -11,10 +11,8 @@ exports.create = (req, res) => {
 
   // Create a Customer
   const customer = new Customer({
-    username: req.body.username,
     fullname: req.body.fullname,
     email: req.body.email,
-    password: req.body.password,
     birthday: req.body.birthday,
     phone: req.body.phone,
     identification: req.body.identification,
@@ -25,19 +23,15 @@ exports.create = (req, res) => {
     avatar: req.body.avatar,
     gender: req.body.gender || true,
     description: {
-      me: {
-        job: req.body.description.me.job,
-        salary: req.body.description.me.salary,
-        company: req.body.description.me.company,
-        contact_people: req.body.description.me.contact_people,
-        contact_phone: req.body.description.me.contact_phone
-      },
-      other: {
-        father_name: req.body.description.other.father_name,
-        father_phone: req.body.description.other.father_phone,
-        mother_name: req.body.description.other.mother_name,
-        mother_phone: req.body.description.other.mother_phone
-      }
+      job: req.body.description.job,
+      salary: req.body.description.salary,
+      company: req.body.description.company,
+      contact_people: req.body.description.contact_people,
+      contact_phone: req.body.description.contact_phone,
+      father_name: req.body.description.father_name,
+      father_phone: req.body.description.father_phone,
+      mother_name: req.body.description.mother_name,
+      mother_phone: req.body.description.mother_phone
     }
   });
 
@@ -103,10 +97,8 @@ exports.update = (req, res) => {
   Customer.findOneAndUpdate(
     { _id: req.params.id },
     {
-      username: req.body.username,
       fullname: req.body.fullname,
       email: req.body.email,
-      password: req.body.password,
       birthday: req.body.birthday,
       phone: req.body.phone,
       identification: req.body.identification,
@@ -117,19 +109,15 @@ exports.update = (req, res) => {
       avatar: req.body.avatar,
       gender: req.body.gender || true,
       description: {
-        me: {
-          job: req.body.description.me.job,
-          salary: req.body.description.me.salary,
-          company: req.body.description.me.company,
-          contact_people: req.body.description.me.contact_people,
-          contact_phone: req.body.description.me.contact_phone
-        },
-        other: {
-          father_name: req.body.description.me.other.father_name,
-          father_phone: req.body.description.me.other.father_phone,
-          mother_name: req.body.description.me.other.mother_name,
-          mother_phone: req.body.description.me.other.mother_phone
-        }
+        job: req.body.description.job,
+        salary: req.body.description.salary,
+        company: req.body.description.company,
+        contact_people: req.body.description.contact_people,
+        contact_phone: req.body.description.contact_phone,
+        father_name: req.body.description.father_name,
+        father_phone: req.body.description.father_phone,
+        mother_name: req.body.description.mother_name,
+        mother_phone: req.body.description.mother_phone
       }
     },
     { new: true }
