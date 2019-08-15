@@ -33,7 +33,8 @@ require("./routes/product.routes.js")(app);
 
 require("./routes/category.routes.js")(app);
 require("./routes/post.routes.js")(app);
-require("./routes/user.routes.js")(app);
+require("./routes/order.routes.js")(app);
+require("./routes/message.routes.js")(app);
 
 mongoose.Promise = global.Promise;
 

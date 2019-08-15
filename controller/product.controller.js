@@ -15,7 +15,8 @@ exports.create = (req, res, next) => {
     name: req.body.name,
     category_name: req.body.category_name,
     status: req.body.status,
-    images: req.files[0].filename
+    desc: req.body.desc,
+    images: req.files ? req.files[0].filename : "images.png"
   });
 
   // Save Product in the database
@@ -81,10 +82,11 @@ exports.update = (req, res) => {
   Product.findOneAndUpdate(
     { _id: req.params._id },
     {
-      name: res.body.name,
-      category_name: res.body.category_name,
-      status: res.body.status,
-      images: res.file.path
+      name: req.body.name,
+      category_name: req.body.category_name,
+      status: req.body.status,
+      desc: req.body.desc
+      //   images: res.file.path
     },
     { new: true }
   )
