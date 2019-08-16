@@ -4,6 +4,8 @@ const MessageSchema = mongoose.Schema(
   {
     customer_id: String,
     staff_id: String,
+    customer_phone: String,
+    staff_phone: String,
     created_date: Date,
     context: String
   },

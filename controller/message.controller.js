@@ -20,13 +20,14 @@ exports.create = (req, res) => {
   const message = new Message({
     customer_id: req.body.customer_id,
     staff_id: req.body.staff_id,
+    customer_phone: req.body.customer_phone,
+    staff_phone: req.body.staff_phone,
     created_date: req.body.created_date,
     context: req.body.context
   });
   //send message
-  const from = "0962140533";
-  const to = "84974511405";
-  //   const text = utf8.decode(req.body.context);
+  const from = message.staff_phone;
+  const to = message.customer_phone;
   const text = req.body.context;
 
   nexmo.message.sendSms(from, to, text);
