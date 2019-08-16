@@ -1,5 +1,7 @@
 const Message = require("../model/message.model.js");
 const Nexmo = require("nexmo");
+const utf8 = require("utf8");
+
 const nexmo = new Nexmo({
   apiKey: "e577005e",
   apiSecret: "hIMuSip74IAUVJTk"
@@ -14,13 +16,6 @@ exports.create = (req, res) => {
     });
   }
 
-  //send message
-  const from = "Nexmo";
-  const to = "84974511405";
-  const text = "Hello from Nexmo";
-
-  nexmo.message.sendSms(from, to, text);
-
   // Create a Message
   const message = new Message({
     customer_id: req.body.customer_id,
@@ -28,6 +23,13 @@ exports.create = (req, res) => {
     created_date: req.body.created_date,
     context: req.body.context
   });
+  //send message
+  const from = "0962140533";
+  const to = "84974511405";
+  //   const text = utf8.decode(req.body.context);
+  const text = req.body.context;
+
+  nexmo.message.sendSms(from, to, text);
 
   // Save Message in the database
   message
