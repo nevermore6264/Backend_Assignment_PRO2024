@@ -148,3 +148,26 @@ exports.delete = (req, res) => {
       });
     });
 };
+
+// //login
+// exports.login = (req, res) => {
+//   // Find a single category with a key
+//   Staff.findOne({ key: req.params.key })
+//       .then(category => {
+//           if (!category) {
+//               return res.status(404).send({
+//                   message: "Category not found with key " + req.params.key
+//               });
+//           }
+//           res.send(category);
+//       }).catch(err => {
+//           if (err.kind === 'ObjectId') {
+//               return res.status(404).send({
+//                   message: "Category not found with key " + req.params.key
+//               });
+//           }
+//           return res.status(500).send({
+//               message: "Something wrong retrieving category with key " + req.params.key
+//           });
+//       });
+// };
