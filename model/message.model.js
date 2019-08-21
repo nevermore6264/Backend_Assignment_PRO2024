@@ -6,7 +6,7 @@ const MessageSchema = mongoose.Schema(
     staff_id: String,
     customer_phone: String,
     staff_phone: String,
-    created_date: Date,
+    created_date: { type: Date, default: Date.now },
     context: String
   },
   {
