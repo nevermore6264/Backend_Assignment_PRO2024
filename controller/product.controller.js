@@ -16,7 +16,8 @@ exports.create = (req, res, next) => {
     category_name: req.body.category_name,
     status: req.body.status,
     desc: req.body.desc,
-    images: req.files ? req.files[0].filename : "images.png"
+    images: req.body.images
+    // images: req.files ? req.files[0].filename : "images.png"
   });
 
   // Save Product in the database
@@ -85,7 +86,9 @@ exports.update = (req, res) => {
       name: req.body.name,
       category_name: req.body.category_name,
       status: req.body.status,
-      desc: req.body.desc
+      desc: req.body.desc,
+      images: req.body.images
+
       //   images: res.file.path
     },
     { new: true }

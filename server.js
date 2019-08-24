@@ -37,6 +37,7 @@ require("./routes/order.routes.js")(app);
 require("./routes/message.routes.js")(app);
 require("./routes/capital.routes.js")(app);
 require("./routes/login.routes.js")(app);
+require("./routes/revenue_expenditure.routes.js")(app);
 
 mongoose.Promise = global.Promise;
 

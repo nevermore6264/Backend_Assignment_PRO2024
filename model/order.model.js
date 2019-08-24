@@ -5,7 +5,7 @@ const OrderSchema = mongoose.Schema(
     customer_id: String,
     product_id: String,
     staff_id: String,
-    created_date: Date,
+    created_date: String,
     loan: Number, //Số tiền vay
     interest_rate: Number, //Lãi
     interest: Number, // Tiền lãi

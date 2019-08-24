@@ -4,7 +4,7 @@ const CustomerSchema = mongoose.Schema(
   {
     fullname: String,
     email: String,
-    birthday: Date,
+    birthday: String,
     phone: String,
     identification: String,
     address: String,

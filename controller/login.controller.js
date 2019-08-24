@@ -14,7 +14,7 @@ exports.loginUser = (req, res) => {
         // email does not exist
             res.status(409).send({ message: 'Something is wrong' });
             } else if (user.username === req.body.username && user.password === req.body.password) {
-                res.send({user});
+                res.send({user}); 
                 console.log("login success!");
 
             

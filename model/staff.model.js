@@ -6,7 +6,7 @@ const StaffSchema = mongoose.Schema(
     fullname: String,
     email: String,
     password: String,
-    birthday: Date,
+    birthday: String,
     phone: String,
     identification: String,
     address: String,
