@@ -13,7 +13,7 @@
     "axios": "^0.18.1",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.14.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "google-translate-api": "^2.3.0",
     "mongoose": "^5.4.2",
     "multer": "^1.4.2",
